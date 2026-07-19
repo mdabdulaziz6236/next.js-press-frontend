@@ -3,7 +3,6 @@ import Link from "next/link"
 
 
 export default function HomePage() {
-  console.log("Root Layout")
   return <div>
     Salam World!
 
