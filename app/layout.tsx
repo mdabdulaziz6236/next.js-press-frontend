@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { DM_Sans, Outfit } from "next/font/google";
+import { DM_Sans, Outfit, Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/sonner";
 
-const outfitHeading = Outfit({subsets:['latin'],variable:'--font-heading'});
+const outfitHeading = Outfit({ subsets: ['latin'], variable: '--font-heading' });
 
-const dmSans = DM_Sans({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Create My Press App",
@@ -20,9 +21,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", "font-sans", dmSans.variable, outfitHeading.variable)}
+      className={cn("h-full", "antialiased", "font-sans", inter.variable, outfitHeading.variable)}
     >
       <body className="min-h-full flex flex-col">
+        <Toaster position="top-right" />
         {/* Navbar */}
 
         {children}
