@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const RegisterPage = () => {
   return (
-    <div className="min-h-[calc(100vh-65px)] bg-background flex items-center justify-center">
+    <div className="min-h-[calc(100vh-65px)] p-4 bg-background flex items-center justify-center">
       <div className="w-full max-w-md space-y-6 rounded-lg border p-8 shadow-lg">
         <div className="space-y-2 text-center ">
           <h1 className="text-3xl font-bold ">Welcome Back!</h1>

@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 export default function LoginPage() {
   return (
     <>
-      <div className="flex min-h-[calc(100vh-64.9px)] items-center justify-center">
+      <div className="flex min-h-[calc(100vh-64.9px)] p-4 items-center justify-center">
         <div className="w-full max-w-md space-y-6 rounded-lg border p-8 shadow-lg">
           {/* FORM GENERIC TEXT */}
           <div className="space-y-2 text-center ">

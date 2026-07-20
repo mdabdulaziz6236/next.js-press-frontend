@@ -37,7 +37,7 @@ const navLinks = [
 ];
 
 const userMenuItems = [
-  { label: "Profile", href: "/profile", icon: User },
+  { label: "Profile", href: "/dashboard/profile", icon: User },
   { label: "Billing", href: "/billing", icon: CreditCard },
   { label: "Settings", href: "/settings", icon: Settings },
   { label: "Support", href: "/support", icon: LifeBuoy, separatorBefore: true },
@@ -100,7 +100,7 @@ export function Navbar({ user }: NavbarProps) {
   // }, [isLogout]);
   return (
     <header className="border-b">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Boxes className="size-6 text-primary" />
@@ -110,7 +110,7 @@ export function Navbar({ user }: NavbarProps) {
         </Link>
 
         {/* Nav links */}
-        <ul className="items-center gap-1 md:flex">
+        <ul className="items-center hidden gap-1 md:flex">
           {navLinks.map((link) => (
             <li key={link.label}>
               <Link
