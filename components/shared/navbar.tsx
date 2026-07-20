@@ -74,7 +74,7 @@ type NavbarProps = {
 
 export function Navbar({ user }: NavbarProps) {
   const router = useRouter();
-  const [isLogout, setIsLogout] = useState(false);
+  // const [isLogout, setIsLogout] = useState(false);
 
   const handleUserMenuAction = async (action: string, e: React.MouseEvent) => {
     if (action === "Log out") {
@@ -82,19 +82,22 @@ export function Navbar({ user }: NavbarProps) {
 
       try {
         await logout();
-        setIsLogout(true);
+        toast.success("User Logged Out Successfully");
+        router.push("/login");
+        router.refresh();
+        // setIsLogout(true);
       } catch (error) {
         console.error("Logout failed:", error);
       }
     }
   };
-  useEffect(() => {
-    if (isLogout) {
-      toast.success("User Logged Out Successfully");
-      router.push("/login");
-      router.refresh();
-    }
-  }, [isLogout]);
+  // useEffect(() => {
+  //   if (isLogout) {
+  //     toast.success("User Logged Out Successfully");
+  //     router.push("/login");
+  //     router.refresh();
+  //   }
+  // }, [isLogout]);
   return (
     <header className="border-b">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
@@ -122,7 +125,7 @@ export function Navbar({ user }: NavbarProps) {
         </ul>
 
         {/* User dropdown */}
-        {user.success ? (
+        {user?.success ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -132,6 +135,12 @@ export function Navbar({ user }: NavbarProps) {
                 aria-label="Open user menu"
               >
                 <Avatar className="size-8 flex justify-center items-center">
+                  {/* {user.data?.profile?.profile?.profilePhoto && (
+                    <AvatarImage
+                      src={user.data.profile.profile.profilePhoto}
+                      alt={user.data.profile.name}
+                    />
+                  )} */}
                   <AvatarFallback className="bg-amber-100">
                     <User2Icon className="text-green-600 size-5" />
                   </AvatarFallback>
