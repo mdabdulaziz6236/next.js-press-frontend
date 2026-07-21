@@ -46,7 +46,6 @@ export const loginAction = async (
       sameSite: "lax",
     });
     const decodedToken = jwt.decode(result.data.accessToken) as JwtPayload;
-    console.log(decodedToken);
     if (decodedToken.role === "USER") {
       redirect("/dashboard");
     } else if (decodedToken.role === "ADMIN") {
